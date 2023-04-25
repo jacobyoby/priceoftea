@@ -1,36 +1,40 @@
-name: Scrape, Save, and Generate Graph Hourly
+name: Fetch Titanium Price and Generate Chart
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '*/5 * * * *'  # Run every 5 minutes
 
 jobs:
-  scrape_and_save:
+  fetch_and_generate:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Check out repository
+    - name: Checkout repo
       uses: actions/checkout@v2
-    
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.x
-    
+        python-version: 3.9
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4 pandas matplotlib imgkit
+        pip install requests matplotlib
 
-    - name: Install wkhtmltopdf
+    - name: Fetch Titanium price and convert to Yuan
       run: |
-        sudo apt-get update
-        sudo apt-get install -y wkhtmltopdf
-        
-    - name: Scrape and save data
-      run: python main.py
-    
-    - name: Generate graph
+        export ALPHAVANTAGE_API_KEY=4TRT8KNTAO3IEB5H
+        python main.py
+
+    - name: Generate chart
       run: python generate_graph.py
 
-    - name: Generate HTML card
-      run: python generate_html_card.py
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add stock_data.csv stock_price_chart.png
+        git commit -m "Update stock data and chart [skip ci]"
+        git push

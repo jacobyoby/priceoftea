@@ -1,42 +1,49 @@
-The Price of T(itatnium) in China
+# The Price of T(itanium) in China 🇨🇳
 
-## Description
-
-This repository contains a script to check the current price of titanium on the US stock exchange, convert it to Chinese Yuan, and display it in a chart over time. The script runs every 5 minutes using GitHub Actions.
+This Python script fetches the price of Titanium in the US stock market and converts it to Chinese Yuan (CNY). It generates a CSV file to store the price data and creates a line chart to visualize the stock price in USD and CNY over time. 📈
 
 ## Features
 
-1. Fetches the current price of titanium on the US stock exchange
-2. Converts the price to Chinese Yuan
-3. Visualizes the data in a chart over time
-4. Uses GitHub Actions to run the script every 5 minutes
+- 🪙 Fetch the current price of Titanium in the US stock market
+- 💱 Convert the price to Chinese Yuan (CNY) using real-time exchange rates
+- 📊 Generate a line chart to visualize the stock price in USD and CNY over time
+- 📝 Store the time, price in USD, and price in CNY in a CSV file
 
-## Requirements
+## Prerequisites
 
-To set up the project, you'll need to install the following Python libraries:
+Before running the script, make sure you have the following Python packages installed:
 
-- `requests`
-- `beautifulsoup4`
-- `pandas`
-- `matplotlib`
-- `forex-python`
+- `requests`: To make API calls
+- `matplotlib`: To create the line chart
 
-You can install these libraries using the following command:
+You can install them using the following command:
 
-```
-pip install requests beautifulsoup4 pandas matplotlib forex-python
+```bash
+pip install requests matplotlib
 ```
 
-## How to Use
+## Usage
 
-1. Clone this repository or download the source code.
-2. Run the `main.py` script to fetch the current price of titanium, convert it to Chinese Yuan, and save the data to a CSV file.
-3. Run the `generate_graph.py` script to create a chart of the titanium prices over time.
-4. Set up a GitHub Action to run the `main.py` script every 5 minutes. See the `main.yml` file for the GitHub Action configuration.
+1. First, run `main.py` to fetch the current price of Titanium in the US stock market and convert it to Chinese Yuan (CNY). The script will store the time, price in USD, and price in CNY in a CSV file named `stock_data.csv`.
 
-## File Structure
+```bash
+python main.py
+```
 
-- `main.py`: Contains the main script to fetch the titanium price, convert it to Yuan, and save the data to a CSV file.
-- `generate_graph.py`: Contains the script to generate a chart of titanium prices over time.
-- `main.yml`: Contains the GitHub Action configuration to run the `main.py` script every 5 minutes.
-- `requirements.txt`: Contains the required Python libraries for this project.
+2. Next, run `generate_graph.py` to create a line chart using the data from `stock_data.csv` and save the chart as a PNG image named `stock_price_chart.png`.
+
+```bash
+python generate_graph.py
+```
+
+## Notes
+
+- 🌐 The script uses the Alpha Vantage API to fetch stock prices and exchange rates. You'll need to obtain an API key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key) and set it as an environment variable named `ALPHAVANTAGE_API_KEY` before running the script.
+
+- ⏲️ The data is fetched and stored in real-time. To track the stock price over time, you can set up a scheduled job (e.g., using cron or Task Scheduler) to run the script periodically.
+
+- 🎨 Customize the line chart's appearance by modifying the `plot_stock_data` function in `generate_graph.py`.
+
+## License
+
+This project is licensed under the MIT License.

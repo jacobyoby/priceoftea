@@ -4,7 +4,7 @@ This Python script fetches the price of Titanium in the US stock market and conv
 
 [![Fetch Titanium Stock Price and Generate Chart](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml)
 
-![Titanium Stock Price Chart]([stock_price_chart.png](https://github.com/jacobyoby/priceoftea/blob/master/stock_price_chart.png))
+![Titanium Stock Price Chart](https://github.com/jacobyoby/priceoftea/blob/master/stock_price_chart.png?raw=true)
 
 
 ## Features

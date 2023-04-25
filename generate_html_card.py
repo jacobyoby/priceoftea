@@ -1,54 +1,54 @@
-import pandas as pd
-import matplotlib.pyplot as plt
+import base64
 import imgkit
+from jinja2 import Template
 
-HTML_TEMPLATE = """
+TEMPLATE = """
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price of TEA in CHINA over Time</title>
+<style>
+    body {{
+        font-family: Arial, sans-serif;
+        text-align: center;
+        width: 400px;
+        height: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }}
+    img {{
+        max-width: 100%;
+        height: auto;
+    }}
+    h1 {{
+        font-size: 24px;
+        margin-bottom: 10px;
+    }}
+    p {{
+        font-size: 14px;
+    }}
+</style>
 </head>
 <body>
-    <div>
-        <h1>Price of TEA in CHINA over Time</h1>
-        <img src="{image_path}" alt="Price of TEA in CHINA over Time">
-    </div>
+<h1>Price of TEA in CHINA over Time</h1>
+<img src="data:image/png;base64,{{-base64_img-}}">
+<p>Generated on: {{- datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') -}}</p>
 </body>
 </html>
 """
 
 
-def generate_graph():
-    df = pd.read_csv('data.csv', names=[
-                     'Timestamp', 'Product Name', 'Original Price', 'Discounted Price'], parse_dates=['Timestamp'])
-    df['Timestamp'] = pd.to_datetime(df['Timestamp'])
-
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.plot(df['Timestamp'], df['Discounted Price'], marker='o', linestyle='-')
-    ax.set_xlabel('Time')
-    ax.set_ylabel('Price (in YEN)')
-    ax.set_title('Price of TEA in CHINA over Time')
-
-    plt.xticks(rotation=45)
-    plt.grid()
-    plt.tight_layout()
-    plt.savefig('price_graph.png')
-
-
-def generate_html_card():
-    with open("html_card.html", "w", encoding="utf-8") as f:
-        content = HTML_TEMPLATE.format(image_path="price_graph.png")
-        f.write(content)
-
-
 def generate_card_image():
+    with open('price_graph.png', 'rb') as img_file:
+        img_base64 = base64.b64encode(img_file.read()).decode('utf-8')
+
+    html_content = Template(TEMPLATE).render(base64_img=img_base64)
+
+    with open('html_card.html', 'w', encoding='utf-8') as html_file:
+        html_file.write(html_content)
+
     imgkit.from_file('html_card.html', 'card_image.png')
 
 
 if __name__ == "__main__":
-    generate_graph()
-    generate_html_card()
     generate_card_image()

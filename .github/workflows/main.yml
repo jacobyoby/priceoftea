@@ -1,40 +1,29 @@
-name: Fetch Titanium Price and Generate Chart
+name: Fetch Titanium Stock Price and Generate Chart
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'  # Run every 5 minutes
+    - cron: '*/5 * * * *'
 
 jobs:
-  fetch_and_generate:
+  fetch_titanium_price:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
+    - name: Check out repository
       uses: actions/checkout@v2
 
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: '3.x'
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests matplotlib
+        pip install -r requirements.txt
 
-    - name: Fetch Titanium price and convert to Yuan
+    - name: Run main.py
       run: |
         export ALPHAVANTAGE_API_KEY=4TRT8KNTAO3IEB5H
         python main.py
-
-    - name: Generate chart
-      run: python generate_graph.py
-
-    - name: Commit and push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add stock_data.csv stock_price_chart.png
-        git commit -m "Update stock data and chart [skip ci]"
-        git push

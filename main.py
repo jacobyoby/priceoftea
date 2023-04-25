@@ -4,6 +4,7 @@ from forex_python.converter import CurrencyRates
 import urllib
 import datetime
 import csv
+import generate_graph
 
 # Define the Alpha Vantage API URL
 ALPHAVANTAGE_API_URL = "https://www.alphavantage.co/query"
@@ -72,6 +73,11 @@ def main():
         # Store the stock data to the CSV file
         current_time = datetime.datetime.now()
         save_stock_data_to_csv(current_time, stock_price_usd, stock_price_cny)
+        
+    
+
 
 if __name__ == "__main__":
     main()
+    generate_graph.main()
+

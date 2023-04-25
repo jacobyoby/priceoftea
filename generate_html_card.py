@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import imgkit
 
 HTML_TEMPLATE = """
 <!DOCTYPE html>
@@ -19,8 +20,10 @@ HTML_TEMPLATE = """
 </html>
 """
 
+
 def generate_graph():
-    df = pd.read_csv('data.csv', names=['Timestamp', 'Product Name', 'Original Price', 'Discounted Price'], parse_dates=['Timestamp'])
+    df = pd.read_csv('data.csv', names=[
+                     'Timestamp', 'Product Name', 'Original Price', 'Discounted Price'], parse_dates=['Timestamp'])
     df['Timestamp'] = pd.to_datetime(df['Timestamp'])
 
     fig, ax = plt.subplots(figsize=(10, 5))
@@ -34,11 +37,18 @@ def generate_graph():
     plt.tight_layout()
     plt.savefig('price_graph.png')
 
+
 def generate_html_card():
     with open("html_card.html", "w", encoding="utf-8") as f:
         content = HTML_TEMPLATE.format(image_path="price_graph.png")
         f.write(content)
 
+
+def generate_card_image():
+    imgkit.from_file('html_card.html', 'card_image.png')
+
+
 if __name__ == "__main__":
     generate_graph()
     generate_html_card()
+    generate_card_image()

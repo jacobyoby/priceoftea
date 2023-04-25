@@ -2,6 +2,8 @@
 
 This Python script fetches the price of Titanium in the US stock market and converts it to Chinese Yuan (CNY). It generates a CSV file to store the price data and creates a line chart to visualize the stock price in USD and CNY over time. 📈
 
+[![Fetch Titanium Stock Price and Generate Chart](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml/badge.svg)](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml)
+
 
 ![Titanium Stock Price Chart](stock_price_chart.png)
 

@@ -2,7 +2,11 @@ pandas
 matplotlib
 forex-python
 requests
+<<<<<<< HEAD
 urllib
 datetime
 
 
+=======
+datetime
+>>>>>>> cb9123b27494d8ae3c206ba5b4cdb81f51d0a7fa

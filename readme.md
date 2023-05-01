@@ -2,7 +2,7 @@
 
 This Python script fetches the price of TSE (Taiwan Semiconductor Manufacturing Company Limited) stock in the US market and converts it to Chinese Yuan (CNY). It generates a CSV file to store the price data and creates a line chart to visualize the stock price in USD and CNY over time. 📈
 
-[![Fetch TSE Stock Price and Generate Chart](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml)
+[![Fetch TSE Stock Price and Generate Chart](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml/badge.svg?branch=master)][def]
 
 ![TSE Stock Price Chart](https://github.com/jacobyoby/priceoftea/blob/master/stock_price_chart.png?raw=true)
 
@@ -52,3 +52,5 @@ python generate_graph.py
 ## License
 
 This project is licensed under the MIT License.
+
+[def]: https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml

@@ -1,15 +1,14 @@
 # The Price of T(itanium) in China 🇨🇳
 
-This Python script fetches the price of Titanium in the US stock market and converts it to Chinese Yuan (CNY). It generates a CSV file to store the price data and creates a line chart to visualize the stock price in USD and CNY over time. 📈
+This Python script fetches the price of TSE (Taiwan Semiconductor Manufacturing Company Limited) stock in the US market and converts it to Chinese Yuan (CNY). It generates a CSV file to store the price data and creates a line chart to visualize the stock price in USD and CNY over time. 📈
 
-[![Fetch Titanium Stock Price and Generate Chart](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml)
+[![Fetch TSE Stock Price and Generate Chart](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml)
 
-![Titanium Stock Price Chart](stock_price_chart.png)
-
+![TSE Stock Price Chart](https://github.com/jacobyoby/priceoftea/blob/master/stock_price_chart.png?raw=true)
 
 ## Features
 
-- 🪙 Fetch the current price of Titanium in the US stock market
+- 🪙 Fetch the current price of TSE stock in the US market
 - 💱 Convert the price to Chinese Yuan (CNY) using real-time exchange rates
 - 📊 Generate a line chart to visualize the stock price in USD and CNY over time
 - 📝 Store the time, price in USD, and price in CNY in a CSV file
@@ -19,17 +18,18 @@ This Python script fetches the price of Titanium in the US stock market and conv
 Before running the script, make sure you have the following Python packages installed:
 
 - `requests`: To make API calls
+- `forex-python`: To convert currency
 - `matplotlib`: To create the line chart
 
 You can install them using the following command:
 
 ```bash
-pip install requests matplotlib
+pip install requests forex-python matplotlib
 ```
 
 ## Usage
 
-1. First, run `main.py` to fetch the current price of Titanium in the US stock market and convert it to Chinese Yuan (CNY). The script will store the time, price in USD, and price in CNY in a CSV file named `stock_data.csv`.
+1. First, run `main.py` to fetch the current price of TSE stock in the US market and convert it to Chinese Yuan (CNY). The script will store the time, price in USD, and price in CNY in a CSV file named `stock_data.csv`.
 
 ```bash
 python main.py
@@ -43,7 +43,7 @@ python generate_graph.py
 
 ## Notes
 
-- 🌐 The script uses the Alpha Vantage API to fetch stock prices and exchange rates. You'll need to obtain an API key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key) and set it as an environment variable named `ALPHAVANTAGE_API_KEY` before running the script.
+- 🌐 The script uses the Alpha Vantage API to fetch stock prices and exchange rates. You'll need to obtain an API key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key) and set it as an environment variable named `ALPHAVANTAGE_API_KEY` or replace the placeholder in the script before running the script.
 
 - ⏲️ The data is fetched and stored in real-time. To track the stock price over time, you can set up a scheduled job (e.g., using cron or Task Scheduler) to run the script periodically.
 

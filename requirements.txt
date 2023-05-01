@@ -2,9 +2,4 @@ pandas
 matplotlib
 forex-python
 requests
-os
-requests
-urllib
 datetime
-csv
-generate_graph

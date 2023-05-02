@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  priceoftea:
+    image: priceoftea
+    build:
+      context: .
+      dockerfile: ./Dockerfile

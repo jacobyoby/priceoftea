@@ -29,6 +29,9 @@ def fetch_stock_price() -> Union[None, float]:
         "symbol": STOCK_SYMBOL,
         "apikey": API_KEY,
     }
+    
+    print(f"API_KEY: {API_KEY}")
+    print(f"STOCK_SYMBOL: {STOCK_SYMBOL}")
     url: str = f"{ALPHAVANTAGE_API_URL}?{urllib.parse.urlencode(params)}"
     response = requests.get(url)
     json_data = response.json()

@@ -35,9 +35,8 @@ def fetch_stock_price() -> Union[None, float]:
     current_price = json_data.get("Global Quote", {}).get("05. price")
     if current_price is not None:
         return float(current_price)
-    else:
-        print(f"Unable to fetch the stock price. JSON data: {json_data}")
-        return None
+    print(f"Unable to fetch the stock price. JSON data: {json_data}")
+    return None
 
 
 def convert_usd_to_cny(usd_amount: float) -> float:

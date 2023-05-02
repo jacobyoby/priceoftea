@@ -1,56 +1,29 @@
-# The Price of T(itanium) in China 🇨🇳
+# The Price of T(itanium) in China 🇨🇳 
 
-This Python script fetches the price of TSE (Taiwan Semiconductor Manufacturing Company Limited) stock in the US market and converts it to Chinese Yuan (CNY). It generates a CSV file to store the price data and creates a line chart to visualize the stock price in USD and CNY over time. 📈
+This Python script fetches the price of TSE (Taiwan Semiconductor Manufacturing Company Limited) stock in the US market and converts it to Chinese Yuan (CNY). It generates a CSV file to store the price data and creates a line chart to visualize the stock price in USD and CNY over time. 📈  
 
-[![Fetch TSE Stock Price and Generate Chart](https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml/badge.svg?branch=master)][def]
-
-![TSE Stock Price Chart](https://github.com/jacobyoby/priceoftea/blob/master/stock_price_chart.png?raw=true)
-
-## Features
-
-- 🪙 Fetch the current price of TSE stock in the US market
-- 💱 Convert the price to Chinese Yuan (CNY) using real-time exchange rates
-- 📊 Generate a line chart to visualize the stock price in USD and CNY over time
-- 📝 Store the time, price in USD, and price in CNY in a CSV file
+[![Fetch TSE Stock Price and Generate Chart](https://github.com/[username]/[repository-name]/actions/workflows/main.yml/badge.svg?branch=master)][def]  
+![TSE Stock Price Chart](https://github.com/[username]/[repository-name]/blob/master/data/stock_price_chart.png?raw=true)  
 
 ## Prerequisites
+1. Register for an API key from [alphavantage](https://www.alphavantage.co/support/#api-key)
+2. Install Python 3.x with pip.
+3. Install required modules using `pip install -r requirements.txt`.
 
-Before running the script, make sure you have the following Python packages installed:
+## Features:
+- Fetches current stock prices from Alphavantage API for a given symbol.
+- Converts the stock price from USD to Chinese Yuan (CNY).
+- Saves the fetched data (time, price in USD, price in CNY) to a CSV file.
+- Generates a line chart using the saved data to visualize the stock price in USD and CNY over time.
 
-- `requests`: To make API calls
-- `forex-python`: To convert currency
-- `matplotlib`: To create the line chart
+## Running the script
 
-You can install them using the following command:
+1. Create `.env` file in the same directory as main.py file with the following contents: 
+	```
+	STOCK_SYMBOL={symbol}
+	API_KEY={your-alphavantage-API-key}
+	``` 
+	where `{symbol}` is the stock symbol you want to fetch the data for.
+2. Run the script using `python main.py`
 
-```bash
-pip install requests forex-python matplotlib
-```
-
-## Usage
-
-1. First, run `main.py` to fetch the current price of TSE stock in the US market and convert it to Chinese Yuan (CNY). The script will store the time, price in USD, and price in CNY in a CSV file named `stock_data.csv`.
-
-```bash
-python main.py
-```
-
-2. Next, run `generate_graph.py` to create a line chart using the data from `stock_data.csv` and save the chart as a PNG image named `stock_price_chart.png`.
-
-```bash
-python generate_graph.py
-```
-
-## Notes
-
-- 🌐 The script uses the Alpha Vantage API to fetch stock prices and exchange rates. You'll need to obtain an API key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key) and set it as an environment variable named `ALPHAVANTAGE_API_KEY` or replace the placeholder in the script before running the script.
-
-- ⏲️ The data is fetched and stored in real-time. To track the stock price over time, you can set up a scheduled job (e.g., using cron or Task Scheduler) to run the script periodically.
-
-- 🎨 Customize the line chart's appearance by modifying the `plot_stock_data` function in `generate_graph.py`.
-
-## License
-
-This project is licensed under the MIT License.
-
-[def]: https://github.com/jacobyoby/priceoftea/actions/workflows/main.yml
+That's it! The script will now fetch the data and generate a graph using the fetched data stored in the CSV file.

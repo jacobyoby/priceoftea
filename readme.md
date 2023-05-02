@@ -20,6 +20,22 @@ This Python application fetches the price of TSE (Taiwan Semiconductor Manufactu
 
 ## Running the Application
 
+### Clone the Repository
+
+1. Install Git on your machine if you haven't already. You can download Git from the official website: https://git-scm.com/downloads
+2. Open a terminal or command prompt and navigate to the directory where you want to clone the repository.
+3. Clone the repository by running the following command:
+
+   ```
+   git clone https://github.com/jacobyoby/priceoftea.git
+   ```
+
+4. Navigate to the newly cloned `priceoftea` directory:
+
+   ```
+   cd priceoftea
+   ```
+
 ### Using Python
 
 1. Create a `.env` file in the same directory as the `main.py` file with the following contents:
@@ -38,18 +54,17 @@ The script will now fetch the data, store it in the CSV file, and generate a gra
 ### Using Docker
 
 1. Install Docker on your machine if you haven't already. You can download Docker from the official website: https://www.docker.com/get-started
-2. Clone the application's repository or download the source code, ensuring the Dockerfile, Python script, and `.env` file are in the same directory.
-3. Open a terminal or command prompt and navigate to the directory containing the Dockerfile.
-4. Build the Docker image by running the following command:
+2. Make sure you are in the `priceoftea` directory where the Dockerfile, Python script, and `.env` file are located.
+3. Build the Docker image by running the following command:
 
    ```
-   docker build -t jacobedurham/priceoftea-python .
+   docker build -t priceoftea-python .
    ```
 
-5. After the build is successful, run the Docker container with the following command:
+4. After the build is successful, run the Docker container with the following command:
 
    ```
-   docker run -p 8000:8000 jacobedurham/priceoftea-python
+   docker run -p 8000:8000 priceoftea-python
    ```
 
 The application should now be running inside the Docker container, and you can interact with it through the exposed port 8000.

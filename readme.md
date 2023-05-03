@@ -5,6 +5,7 @@ This Python application fetches the price of TSE (Taiwan Semiconductor Manufactu
 [![Docker Build and Run](https://github.com/jacobyoby/priceoftea/actions/workflows/docker_build_run.yml/badge.svg?branch=stable)](https://github.com/jacobyoby/priceoftea/actions/workflows/docker_build_run.yml)
 
 
+
 ![TSE Stock Price Chart](https://github.com/jacobyoby/priceoftea/blob/master/app/data/stock_price_chart.png?raw=true)
 
 ## Prerequisites

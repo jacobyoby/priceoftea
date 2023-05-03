@@ -58,16 +58,17 @@ The script will now fetch the data, store it in the CSV file, and generate a gra
 
 1. Install Docker on your machine if you haven't already. You can download Docker from the official website: https://www.docker.com/get-started
 2. Make sure you are in the `priceoftea` directory where the Dockerfile, Python script, and `.env` file are located.
-3. Build the Docker image by running the following command:
+3. Pull the Docker image by running the following command:
 
    ```
-   docker build -t priceoftea-python .
+   docker pull jacobedurham/priceoftea-python:latest
+
    ```
 
 4. After the build is successful, run the Docker container with the following command:
 
    ```
-   docker run -p 8000:8000 priceoftea-python
+   docker run -p 8000:8000 jacobedurham/priceoftea-python:latest
    ```
 
 The application should now be running inside the Docker container, and you can interact with it through the exposed port 8000.

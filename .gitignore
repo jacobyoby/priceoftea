@@ -1,7 +1,7 @@
 __pycache__/
 *.pyc
 *.pyo
-*.pydv e n v / 
+*.pyd
 venv/
 .devcontainer
 .env

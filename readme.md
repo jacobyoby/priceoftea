@@ -1,10 +1,8 @@
-# Price of T(itanium) in China 🇨🇳
+# Price of TSE Stock in China 🇨🇳
 
 This Python application fetches the price of TSE (Taiwan Semiconductor Manufacturing Company Limited) stock in the US market, converts it to Chinese Yuan (CNY), and generates a line chart to visualize the stock price in both currencies over time. The application also stores the price data in a CSV file. 📈
 
 [![Docker Build and Run](https://github.com/jacobyoby/priceoftea/actions/workflows/docker_build_run.yml/badge.svg?branch=stable)](https://github.com/jacobyoby/priceoftea/actions/workflows/docker_build_run.yml)
-
-
 
 ![TSE Stock Price Chart](https://github.com/jacobyoby/priceoftea/blob/master/app/data/stock_price_chart.png?raw=true)
 
@@ -58,11 +56,10 @@ The script will now fetch the data, store it in the CSV file, and generate a gra
 
 1. Install Docker on your machine if you haven't already. You can download Docker from the official website: https://www.docker.com/get-started
 2. Make sure you are in the `priceoftea` directory where the Dockerfile, Python script, and `.env` file are located.
-3. Pull the Docker image by running the following command:
+3. Build the Docker image by running the following command:
 
    ```
-   docker pull jacobedurham/priceoftea-python:latest
-
+   docker build -t jacobedurham/priceoftea-python:latest .
    ```
 
 4. After the build is successful, run the Docker container with the following command:
